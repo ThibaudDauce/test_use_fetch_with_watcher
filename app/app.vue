@@ -1,11 +1,19 @@
 <template>
   <div>
     <!-- Clicking this button fail the request, only the first time after refresh -->
-    <button @click="someParam++">Set query param</button>
+    <div>
+    Current param {{ someParam }}. <button @click="someParam++">Set query param</button>
+    </div>
 
-    {{  data  }}
+    <div v-if="data">
+      <strong>Data:</strong>
+      {{  data  }}
+    </div>
 
-    {{ error }}
+    <div v-if="error">
+      <strong>Error:</strong>
+      {{ error }}
+    </div>
   </div>
 </template>
 <script setup lang="ts">
