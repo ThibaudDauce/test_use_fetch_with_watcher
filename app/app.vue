@@ -1,6 +1,7 @@
 <template>
   <div>
-    <button @click="someParam = 'test'">Set query param</button>
+    <!-- Clicking this button fail the request, only the first time after refresh -->
+    <button @click="someParam++">Set query param</button>
 
     {{  data  }}
 
@@ -9,8 +10,9 @@
 </template>
 <script setup lang="ts">
 
-const someParam = ref(null as null | string)
+const someParam = ref(1)
 
+// Comment these lines to make it work
 watch(someParam, () => {
   console.log('Some param changed')
 })
